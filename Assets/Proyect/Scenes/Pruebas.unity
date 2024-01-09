@@ -2194,6 +2194,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1995416554}
   - {fileID: 2091158196}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2451,6 +2452,7 @@ GameObject:
   - component: {fileID: 1995416557}
   - component: {fileID: 1995416556}
   - component: {fileID: 1995416555}
+  - component: {fileID: 1995416558}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Ground
@@ -2467,11 +2469,11 @@ Transform:
   m_GameObject: {fileID: 1995416553}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.75832283, y: 2.3202658, z: 0.8648615}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2091158196}
+  m_Father: {fileID: 1792403505}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1995416555
 BoxCollider:
@@ -2544,6 +2546,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1995416553}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1995416558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995416553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf72d5651432a8341b18d60b8c60e13a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationCenter: {fileID: 2091158196}
 --- !u!1 &1999637612
 GameObject:
   m_ObjectHideFlags: 0
@@ -2667,11 +2682,10 @@ Transform:
   m_GameObject: {fileID: 2091158195}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.75832283, y: -1.8202658, z: -0.8648615}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1995416554}
+  m_Children: []
   m_Father: {fileID: 1792403505}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2106722524
