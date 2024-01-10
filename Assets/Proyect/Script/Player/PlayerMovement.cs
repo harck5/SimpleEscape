@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float force, jumpForce, reduceForce;
+    [SerializeField] private float force, jumpForce;
     private float xInput;
     private Rigidbody playerRb;
     private bool isGrounded;
