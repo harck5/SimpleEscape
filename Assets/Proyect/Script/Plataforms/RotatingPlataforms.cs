@@ -4,19 +4,17 @@ using UnityEngine;
 
 public class RotatingPlataforms : MonoBehaviour
 {
+    public float torque = 50f;
 
-    private float angle = 0, currentTime;
-    public float speed = 5;
+    private Rigidbody rb;
 
-    void Update()
+    void Start()
     {
-        currentTime = Time.time;
-        angle = currentTime;
-        transform.Rotate(Vector3.forward * speed / 10);
+        rb = GetComponent<Rigidbody>();
+    }
 
-        if (angle >= 360f)
-        {
-            angle = 0f;
-        }
+    void FixedUpdate()
+    {
+        rb.AddTorque(Vector3.forward * torque * 100);
     }
 }

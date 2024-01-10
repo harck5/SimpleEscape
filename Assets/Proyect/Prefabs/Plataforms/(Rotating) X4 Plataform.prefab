@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9751936ddb55e3641866da3239743077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  torque: 50
 --- !u!114 &7531704472473488590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7def63be5a6949041820d4ae70db1a57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  torque: 50
 --- !u!65 &3093062101803429183
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -142,9 +142,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 445370164537073730}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 1000
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -159,7 +159,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 62
   m_CollisionDetection: 0
 --- !u!1 &3110188712875423196
 GameObject:

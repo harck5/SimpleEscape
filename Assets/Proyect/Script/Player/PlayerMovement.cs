@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float force, jumpForce;
     private float xInput;
     private Rigidbody playerRb;
-    private bool isGrounded;
+    [SerializeField]private bool isGrounded;
 
     private void Start()
     {
@@ -25,19 +25,25 @@ public class PlayerMovement : MonoBehaviour
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         Vector3 input = new Vector3(xInput, 0, 0);
-        playerRb.AddForce(input * force);
+        playerRb.AddForce(input * force);  
     }
-
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+            
+        }
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+            //transform.parent = collision.transform;
         }
     }
     private void OnCollisionExit(Collision collision)
@@ -45,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
+            
         }
     }
 }
