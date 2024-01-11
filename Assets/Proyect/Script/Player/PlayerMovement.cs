@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
-            
+            transform.parent = collision.transform;
         }
     }
     private void OnCollisionEnter(Collision collision)
@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
-            //transform.parent = collision.transform;
+            
         }
     }
     private void OnCollisionExit(Collision collision)

@@ -6,7 +6,7 @@ public class PlataformsMovement : MonoBehaviour
 {
     private Rigidbody plataformRb;
     public Transform locatorA, locatorB;
-    public float speed = 5f;
+    public float speed = 1f;
 
     private bool goToB = true;
     private void Start()
@@ -18,6 +18,7 @@ public class PlataformsMovement : MonoBehaviour
     /// </summary>
     void FixedUpdate()
     {
+        
         if (goToB)
         {
             MoveTowards(locatorB.position);
@@ -38,6 +39,7 @@ public class PlataformsMovement : MonoBehaviour
     private void MoveTowards(Vector3 targetPosition)
     {
         Vector3 direction = (targetPosition - plataformRb.position).normalized;
-        plataformRb.MovePosition(plataformRb.position + direction * speed * Time.fixedDeltaTime);
+        plataformRb.MovePosition(plataformRb.position + direction * speed);
+        plataformRb.MovePosition(plataformRb.position + direction * speed * );
     }
 }
