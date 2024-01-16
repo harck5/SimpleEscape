@@ -4,17 +4,9 @@ using UnityEngine;
 
 public class ContraRotatingPlataforms : MonoBehaviour
 {
-    public float torque = 50f;
-
-    private Rigidbody rb;
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
-
+     public float speed = 5;
     void FixedUpdate()
     {
-        rb.AddTorque(Vector3.forward * torque * 100);
+        transform.Rotate(Vector3.forward * -speed);
     }
 }

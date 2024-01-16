@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Enemi
+  - BouncyGround
   layers:
   - Default
   - TransparentFX
