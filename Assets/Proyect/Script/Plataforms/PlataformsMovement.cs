@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlataformsMovement : MonoBehaviour
 {
-    public Transform locatorA;
-    public Transform locatorB;
-    public float speed = 5f;
+    [SerializeField] private Transform locatorA;
+    [SerializeField] private Transform locatorB;
+    [SerializeField] private float speed = 5f;
 
     private bool goToB = true;
     

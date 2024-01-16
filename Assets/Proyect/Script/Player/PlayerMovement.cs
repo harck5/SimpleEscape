@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 5f;
-    public float jumpForce = 80f;
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private float jumpForce = 80f;
 
     private bool isGrounded;
 
@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
             transform.parent = collision.transform;
@@ -32,10 +32,18 @@ public class PlayerMovement : MonoBehaviour
         {
             GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
+        if (collision.gameObject.CompareTag("RotatingGround"))
+        {
+            isGrounded = true;
+        }
     }
     void OnCollisionStay(Collision collision)
     {
         if(collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+        if (collision.gameObject.CompareTag("RotatingGround"))
         {
             isGrounded = true;
         }
@@ -46,6 +54,10 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = false;
             transform.parent = null;
+        }
+        if (collision.gameObject.CompareTag("RotatingGround"))
+        {
+            isGrounded = false;
         }
     }
 }

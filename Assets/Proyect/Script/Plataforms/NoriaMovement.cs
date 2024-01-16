@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class NoriaMovement : MonoBehaviour
 {
-    public Transform rotationCenter;//Is an Empty whose function is to be the centre of the circle to be traced.
-    float rotationRadius = 6f, angularSpeed = 1f;//What moves away from the radius of the circumference and the speed at which it moves away from it
-    float posX, posY, angle = 0;
+    [SerializeField] private Transform rotationCenter;//Is an Empty whose function is to be the centre of the circle to be traced.
+    [SerializeField] private float rotationRadius = 6f, angularSpeed = 1f;//What moves away from the radius of the circumference and the speed at which it moves away from it
+    private float posX, posY, angle = 0;
 
     /// <summary>
     /// In this code fragment, we have a variable that is going to be equal to the real time, 

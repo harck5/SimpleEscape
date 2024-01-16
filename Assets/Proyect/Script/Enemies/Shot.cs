@@ -5,8 +5,8 @@ using UnityEngine;
 public class Shot : MonoBehaviour
 {
     public GameObject proyectile;
-    public float timer;
-    private float timerMax = 1f;
+    private float timer;
+    [SerializeField] private float timerMax = 1f;
     public float x = 0;
     private void Update()
     {

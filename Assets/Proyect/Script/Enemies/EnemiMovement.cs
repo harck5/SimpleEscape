@@ -6,7 +6,7 @@ public class EnemiMovement : MonoBehaviour
 {
      public Transform locatorA;
     public Transform locatorB;
-    public float speed = 5f;
+    [SerializeField] private float speed = 5f;
 
     private bool goToB = true;
     

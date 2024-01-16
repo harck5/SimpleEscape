@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Trace : MonoBehaviour
 {
-    public float timer;
-    private float timerMax = 1.5f;
+    private float timer;
+    [SerializeField] private float timerMax = 1.5f;
     void Update()
     {
         timer += Time.deltaTime;
