@@ -18,46 +18,48 @@ public class PlayerMovement : MonoBehaviour
         // Jump if you are on the ground and press the jump key
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))
         {
-            GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);//From fisics
         }
     }
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isGrounded = true;
+            isGrounded = true;//Can jump
+            //Parent the player to the platform, in case it is necessary for the player to follow the movement of the platforms
             transform.parent = collision.transform;
         }
         if(collision.gameObject.CompareTag("BouncyGround"))
         {
+            //It is the same line that uses space to jump
             GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
         if (collision.gameObject.CompareTag("RotatingGround"))
         {
-            isGrounded = true;
+            isGrounded = true;//Can jump
         }
     }
     void OnCollisionStay(Collision collision)
     {
         if(collision.gameObject.CompareTag("Ground"))
         {
-            isGrounded = true;
+            isGrounded = true;//Can jump
         }
         if (collision.gameObject.CompareTag("RotatingGround"))
         {
-            isGrounded = true;
+            isGrounded = true;//Can jump
         }
     }
     void OnCollisionExit(Collision collision)
     {
         if(collision.gameObject.CompareTag("Ground"))
         {
-            isGrounded = false;
-            transform.parent = null;
+            isGrounded = false;//Can't jump
+            transform.parent = null;//Unparent the player to plataform
         }
         if (collision.gameObject.CompareTag("RotatingGround"))
         {
-            isGrounded = false;
+            isGrounded = false;//Can't jump
         }
     }
 }

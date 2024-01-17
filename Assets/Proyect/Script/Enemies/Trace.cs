@@ -6,7 +6,7 @@ public class Trace : MonoBehaviour
 {
     private float timer;
     [SerializeField] private float timerMax = 1.5f;
-    void Update()
+    void FixedUpdate()
     {
         timer += Time.deltaTime;
         if (timer >= timerMax)

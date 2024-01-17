@@ -15,7 +15,7 @@ public class EnemiMovement : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (goToB)
+        if (goToB)//When goToB is true go to locatorB
         {
             transform.position = Vector3.MoveTowards(transform.position, locatorB.position, speed * Time.deltaTime);
 
@@ -24,7 +24,7 @@ public class EnemiMovement : MonoBehaviour
                 goToB = false;
             }
         }
-        else
+        else//When goToB is false enter on else
         {
             transform.position = Vector3.MoveTowards(transform.position, locatorA.position, speed * Time.deltaTime);
 
