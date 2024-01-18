@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   proyectile: {fileID: 5945472058845413157, guid: f3d14cef4093f3745a210ff3347c901f,
     type: 3}
-  timer: 0
-  x: 0
+  timerMax: 1
+  heightToDrop: 0
 --- !u!1 &4939179900664693971
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,7 +183,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

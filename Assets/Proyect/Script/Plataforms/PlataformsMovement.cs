@@ -13,7 +13,7 @@ public class PlataformsMovement : MonoBehaviour
     /// <summary>
     /// Vector3.MoveTowards Moves a point current in a straight line towards a target point.
     /// </summary>
-    void Update()
+    void FixedUpdate()
     {
         if (goToB)//When goToB is true go to locatorB
         {

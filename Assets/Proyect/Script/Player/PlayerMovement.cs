@@ -20,6 +20,14 @@ public class PlayerMovement : MonoBehaviour
         {
             GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);//From fisics
         }
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            speed = 7;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            speed = 5;
+        }
     }
     void OnCollisionEnter(Collision collision)
     {

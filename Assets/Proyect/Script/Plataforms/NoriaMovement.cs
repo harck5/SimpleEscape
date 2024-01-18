@@ -13,7 +13,7 @@ public class NoriaMovement : MonoBehaviour
     /// the variable Angle is going to increase progressively until it reaches 360 and then it 
     /// will return to 0 thanks to the if.
     /// </summary>
-     void Update()
+     void FixedUpdate()
      {
         posX = rotationCenter.position.x + Mathf.Cos (angle) * rotationRadius;
         posY = rotationCenter.position.y + Mathf.Sin (angle) * rotationRadius;

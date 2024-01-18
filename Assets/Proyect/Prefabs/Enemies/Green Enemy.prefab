@@ -132,7 +132,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -184,5 +184,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   proyectile: {fileID: 5458291149470704009, guid: da691b01f3e8fbb4ca781f173b8ab9a6,
     type: 3}
-  timer: 0
+  timerMax: 3
   x: 0

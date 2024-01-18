@@ -5,17 +5,22 @@ using UnityEngine;
 public class LazyPlataforms : MonoBehaviour
 {
     private bool goDown = false;
-    [SerializeField] private float speed = 5f;
+    [SerializeField] private float speed = 5f, waitTime = 0.5f;
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player") && !goDown)
         {
             GetComponent<Renderer>().material.color = Color.red;
-            goDown = true;
+            StartCoroutine(WaitAndStartGoingDown());
         }
     }
-    private void Update()
+    private IEnumerator WaitAndStartGoingDown()
+    {
+        yield return new WaitForSeconds(waitTime);
+        goDown = true;
+    }
+    private void FixedUpdate()
     {
         if (goDown)
         {
