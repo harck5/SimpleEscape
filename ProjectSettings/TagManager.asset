@@ -9,6 +9,9 @@ TagManager:
   - BouncyGround
   - RotatingGround
   - Proyectile
+  - Gold
+  - Silver
+  - Bronze
   layers:
   - Default
   - TransparentFX
