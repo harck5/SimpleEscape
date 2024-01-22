@@ -20,10 +20,23 @@ public class InvertNoriaMovement : MonoBehaviour
         posX = rotationCenter.position.x + Mathf.Cos(angle) * rotationRadius;
         posY = rotationCenter.position.y + Mathf.Sin(angle) * rotationRadius;
         transform.position = new Vector3(posX, posY, 0);
-
-        if (angle >= -360f)
+    }
+    private void Start()
+    {
+        StartCoroutine(InvertNoria());
+    }
+    IEnumerator InvertNoria()
+    {
+        while (true)
         {
-            angle = 0f;
+            currentTime = Time.time;
+            angle = currentTime * angularSpeed / 10;
+            angle *= -1;
+            posX = rotationCenter.position.x + Mathf.Cos(angle) * rotationRadius;
+            posY = rotationCenter.position.y + Mathf.Sin(angle) * rotationRadius;
+            transform.position = new Vector3(posX, posY, 0);
+
+            yield return null;
         }
     }
 }
