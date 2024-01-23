@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)//Ejecutable coins
     {
         if (other.CompareTag("Bronze"))
         {

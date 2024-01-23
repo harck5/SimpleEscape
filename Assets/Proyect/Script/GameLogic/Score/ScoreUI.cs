@@ -9,7 +9,7 @@ public class ScoreUI : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI scoreText;
     
-    private void Awake()
+    private void Awake()//Singleton
     {
         if (Instance != null)
         {
@@ -18,7 +18,7 @@ public class ScoreUI : MonoBehaviour
 
         Instance = this;
     }   
-        public void UpdateScoreText(int score) //pendiente de ubicar
+        public void UpdateScoreText(int score)
     {
         scoreText.text = $"{score}";
     }
