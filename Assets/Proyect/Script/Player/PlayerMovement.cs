@@ -6,14 +6,16 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
     [SerializeField] private float jumpForce = 80f;
+    [SerializeField] private float horizontalInput = 0;
 
     private bool isGrounded;
 
     void Update()
     {
         // Movement whith transform
-        float horizontalInput = Input.GetAxis("Horizontal");
+        horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(new Vector3(horizontalInput * speed * Time.deltaTime, 0, 0));
+        
 
         // Jump if you are on the ground and press the jump key
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))

@@ -8,7 +8,7 @@ public class ScoreManager : MonoBehaviour
     public const int SILVER_COINS = 100;
     public const int GOLD_COINS = 1000;
     public static int score;
-    private int totalPoints = 0;
+    //private int totalPoints = 0;
     
     public static void InitializeStaticScore()
     {

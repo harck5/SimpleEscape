@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    [SerializeField] GameObject uiManager;
+    [SerializeField] GameObject player;
     private void Awake()
 {
     // Singleton
@@ -14,9 +16,16 @@ public class GameManager : MonoBehaviour
     }
 
     Instance = this;
-}
+        Instantiate(player, transform.position, Quaternion.identity);
+        Instantiate(uiManager, transform.position, Quaternion.identity);
+    }
     void Start()
     {
         ScoreManager.InitializeStaticScore();//funciona
+    }
+    public void GameOver()
+    {
+        Player.Instance.gameOver = true;
+        Time.timeScale = 0f;
     }
 }

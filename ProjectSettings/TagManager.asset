@@ -12,6 +12,7 @@ TagManager:
   - Gold
   - Silver
   - Bronze
+  - Limit
   layers:
   - Default
   - TransparentFX
