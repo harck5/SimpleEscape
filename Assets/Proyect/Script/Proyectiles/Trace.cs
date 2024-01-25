@@ -6,12 +6,19 @@ public class Trace : MonoBehaviour
 {
     private float timer;
     [SerializeField] private float timerMax = 1.5f;
-    void FixedUpdate()//When timer is finish destroy this gameobject
+    private void Start()
     {
-        timer += Time.deltaTime;
-        if (timer >= timerMax)
+        StartCoroutine(TimerCoroutine());
+    }
+
+    private IEnumerator TimerCoroutine()
+    {
+        while (timer < timerMax)
         {
-            Destroy(gameObject);
+            timer += Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
         }
+
+        Destroy(gameObject);//When timer is finish destroy this gameobject
     }
 }

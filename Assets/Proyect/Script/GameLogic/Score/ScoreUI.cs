@@ -18,7 +18,7 @@ public class ScoreUI : MonoBehaviour
 
         Instance = this;
     }   
-        public void UpdateScoreText(int score)
+        public void UpdateScoreText(int score)//Update de scoretext
     {
         scoreText.text = $"{score}";
     }

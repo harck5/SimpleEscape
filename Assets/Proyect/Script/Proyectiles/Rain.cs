@@ -5,18 +5,28 @@ using UnityEngine;
 public class Rain : MonoBehaviour
 {
     private float timer;
-    [SerializeField]private float timerMax;
+    [SerializeField]private float timerMax = 5f;
     private float speed = 5;
     /// <summary>
     /// Goes down all the time until the timer runs out
     /// </summary>
-    void Update()
+    void FixedUpdate()
     {
         transform.Translate(Vector3.down * speed * Time.deltaTime);
-        timer += Time.deltaTime;
-        if (timer >= timerMax)
+    }
+    private void Start()
+    {
+        StartCoroutine(TimerRain());
+    }
+
+    private IEnumerator TimerRain()
+    {
+        while (timer < timerMax)
         {
-            Destroy(gameObject);
+            timer += Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
         }
+
+        Destroy(gameObject);//When timer is finish destroy this gameobject
     }
 }

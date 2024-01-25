@@ -22,10 +22,9 @@ public class ScoreManager : MonoBehaviour
         return score;
     }
 
-    public static void AddScore(int pointsToAdd)
+    public static void AddScore(int pointsToAdd)//add to the total points and call the function UpdateScoreText
     {
         score += pointsToAdd;
-        Debug.Log($"{score}");
         ScoreUI.Instance.UpdateScoreText(score);
     }
 }

@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class GameAssets : MonoBehaviour
 {
-public static GameAssets Instance { get; private set; }
-public GameObject bronceCoin;
-public GameObject silverCoin;
-public GameObject goldStarCoin;
-public GameObject player;
-private void Awake()
+    public static GameAssets Instance { get; private set; }
+    public GameObject bronceCoin;
+    public GameObject silverCoin;
+    public GameObject goldStarCoin;
+    public GameObject player;
+    public GameObject gameOverPanel;
+    private void Awake()
     {
         // Singleton
         if (Instance != null)

@@ -9,12 +9,21 @@ public class Proyectile : MonoBehaviour
     private float speed = 5;
     void FixedUpdate()
     {
-        transform.Translate(Vector3.up * speed * Time.deltaTime);//goes to the top of the pryectile
-        //Timer to destroy the object
-        timer += Time.deltaTime;
-        if (timer >= timerMax)
+        transform.Translate(Vector3.up * speed * Time.deltaTime);//goes to the top of the proyectile
+    }
+    private void Start()
+    {
+        StartCoroutine(TimerRain());
+    }
+
+    private IEnumerator TimerRain()
+    {
+        while (timer < timerMax)
         {
-            Destroy(gameObject);
+            timer += Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
         }
+
+        Destroy(gameObject);//When timer is finish destroy this gameobject
     }
 }

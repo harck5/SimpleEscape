@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class GameOverUI : MonoBehaviour
 {
-    public TextMeshProUGUI gameOverText, gameOverTotalCoins, TotalCoins, gameOverTime, timer, gameOverMessage;
+    public TextMeshProUGUI gameOverText, gameOverTotalCoins, TotalCoins, gameOverTime, timer, gameOverMessage, restartButtonText;
     public GameObject gameOverPanel;
+    public Button restartButton;
 
     void Update()
     {
@@ -21,6 +23,6 @@ public class GameOverUI : MonoBehaviour
         gameOverTime.text = timer.text;
         gameOverTotalCoins.text = TotalCoins.text;
         gameOverMessage.text = ("You Are Loser");
-        gameOverPanel.gameObject.SetActive(true);
+        gameOverPanel.gameObject.SetActive(true);//Show the panel
     }
 }

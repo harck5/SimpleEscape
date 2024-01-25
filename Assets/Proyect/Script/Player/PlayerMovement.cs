@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
         
 
         // Jump if you are on the ground and press the jump key
-        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space)|| isGrounded && Input.GetKeyDown(KeyCode.W))
         {
             GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);//From fisics
         }

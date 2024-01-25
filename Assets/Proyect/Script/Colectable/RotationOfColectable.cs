@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class RotationOfColectable : MonoBehaviour
 {
-    public float speed = 50f; // Puedes ajustar la velocidad en el Editor de Unity
+    public float speed = 50f;
 
     void Start()
     {
         StartCoroutine(Rotate());
     }
 
-    IEnumerator Rotate()
+    IEnumerator Rotate()//no use update
     {
         while (true)
         {

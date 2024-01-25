@@ -16,16 +16,16 @@ public class GameManager : MonoBehaviour
     }
 
     Instance = this;
-        Instantiate(player, transform.position, Quaternion.identity);
+        Instantiate(player, transform.position, Quaternion.identity);//Instantiate player and UIManager
         Instantiate(uiManager, transform.position, Quaternion.identity);
     }
     void Start()
     {
         ScoreManager.InitializeStaticScore();//funciona
     }
-    public void GameOver()
+    public void GameOver()//GameOver consequences
     {
-        Player.Instance.gameOver = true;
+        Player.Instance.gameOver = true; 
         Time.timeScale = 0f;
     }
 }

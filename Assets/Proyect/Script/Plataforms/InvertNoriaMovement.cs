@@ -9,18 +9,8 @@ public class InvertNoriaMovement : MonoBehaviour
     private float posX, posY, angle = 0, currentTime;
     /// <summary>
     /// In this code fragment, we have a variable that is going to be equal to the real time, 
-    /// the variable Angle is going to increase progressively until it reaches 360 and then it 
-    /// will return to 0 thanks to the if.
+    /// the variable Angle is going to increase progressively
     /// </summary>
-    void FixedUpdate()
-    {
-        currentTime = Time.time;
-        angle = currentTime * angularSpeed / 10;
-        angle *= -1;
-        posX = rotationCenter.position.x + Mathf.Cos(angle) * rotationRadius;
-        posY = rotationCenter.position.y + Mathf.Sin(angle) * rotationRadius;
-        transform.position = new Vector3(posX, posY, 0);
-    }
     private void Start()
     {
         StartCoroutine(InvertNoria());

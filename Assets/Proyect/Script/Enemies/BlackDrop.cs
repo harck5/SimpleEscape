@@ -21,14 +21,14 @@ public class BlackDrop : MonoBehaviour
         {
             if (distanciaAlPlayer <= distnaceToBlackDrop)
             {
-                Instantiate(blackDrop, transform.position + Vector3.zero, Quaternion.Euler(0, 0, 0));
-                Instantiate(blackDrop, transform.position + Vector3.zero, Quaternion.Euler(0, 0, 45));
-                Instantiate(blackDrop, transform.position + Vector3.zero, Quaternion.Euler(0, 0, 90));
-                Instantiate(blackDrop, transform.position + Vector3.zero, Quaternion.Euler(0, 0, 135));
-                Instantiate(blackDrop, transform.position + Vector3.zero, Quaternion.Euler(0, 0, 180));
-                Instantiate(blackDrop, transform.position + Vector3.zero, Quaternion.Euler(0, 0, 225));
-                Instantiate(blackDrop, transform.position + Vector3.zero, Quaternion.Euler(0, 0, 270));
-                Instantiate(blackDrop, transform.position + Vector3.zero, Quaternion.Euler(0, 0, 315));
+                Instantiate(blackDrop, transform.position, Quaternion.Euler(0, 0, 0));
+                Instantiate(blackDrop, transform.position, Quaternion.Euler(0, 0, 45));
+                Instantiate(blackDrop, transform.position, Quaternion.Euler(0, 0, 90));
+                Instantiate(blackDrop, transform.position, Quaternion.Euler(0, 0, 135));
+                Instantiate(blackDrop, transform.position, Quaternion.Euler(0, 0, 180));
+                Instantiate(blackDrop, transform.position, Quaternion.Euler(0, 0, 225));
+                Instantiate(blackDrop, transform.position, Quaternion.Euler(0, 0, 270));
+                Instantiate(blackDrop, transform.position, Quaternion.Euler(0, 0, 315));
                 timer -= timerMax; // Restart Timer
             }
         }
