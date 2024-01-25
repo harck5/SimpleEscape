@@ -7,12 +7,9 @@ public class BlackDrop : MonoBehaviour
     private GameObject player;
     public GameObject blackDrop;
     [SerializeField] private float distnaceToBlackDrop = 5f, timer = 3, timerMax = 3;
-    private void Awake()
-    {
-        player = GameObject.FindGameObjectWithTag("Player"); //Need to assign yes or yes by code to the player in awake
-    }
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");//Need to assign yes or yes by code to the player in Start
     }
 
     void Update()

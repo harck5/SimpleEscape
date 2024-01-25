@@ -8,7 +8,7 @@ public static GameAssets Instance { get; private set; }
 public GameObject bronceCoin;
 public GameObject silverCoin;
 public GameObject goldStarCoin;
-
+public GameObject player;
 private void Awake()
     {
         // Singleton
