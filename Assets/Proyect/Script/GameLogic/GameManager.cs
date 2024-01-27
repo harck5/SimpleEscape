@@ -28,4 +28,12 @@ public class GameManager : MonoBehaviour
         Player.Instance.gameOver = true; 
         Time.timeScale = 0f;
     }
+    public void Pause()
+    {
+        
+    }
+    public void ResumeGame()
+    {
+
+    }
 }
