@@ -8,29 +8,46 @@ using UnityEngine.SceneManagement;
 public class PauseUi : MonoBehaviour
 {
     [SerializeField] private GameObject pausePanel, settingsPanel;
-    [SerializeField] private Button resubeButton, restartButton, settingsButton, exitMenuButton, exitGameButton;
-    private void Start()
+    [SerializeField] private Button resumeButton, restartButton, settingsButton, exitMenuButton, exitGameButton;
+    private void Start()//Register functions to buttons
     {
         settingsPanel.SetActive(false);
+        if (resumeButton != null)
+        {
+            resumeButton.onClick.AddListener(ResumeGame);
+        }
         if (restartButton != null)
         {
             restartButton.onClick.AddListener(RestartThisScene);
         }
         if (settingsButton != null)
         {
-            ShowSettingsPanel();
-            pausePanel.SetActive(false);
+            restartButton.onClick.AddListener(ShowSettingsPanel);
+        }
+        if (exitMenuButton != null)
+        {
+            exitMenuButton.onClick.AddListener(ExitToMenu);
+        }
+        if (exitGameButton != null)
+        {
+            exitGameButton.onClick.AddListener(ExitGame);
         }
     }
+    /// <summary>
+    /// Can enter and go out in pausePanel 
+    /// Can modify the timescale
+    /// Whit the same key
+    /// </summary>
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            // Alternar entre activar y desactivar el pausePanel
+            // Toggle between turning pausePanel on and off
             pausePanel.gameObject.SetActive(!pausePanel.gameObject.activeSelf);
             if (pausePanel.gameObject.activeSelf)
             {
                 Time.timeScale = 0f;
+                settingsPanel.SetActive(false);
             }
             if (!pausePanel.gameObject.activeSelf)
             {
@@ -38,17 +55,46 @@ public class PauseUi : MonoBehaviour
             }
         }
     }
+    /// <summary>
+    /// Hide pausePanel
+    /// </summary>
+    public void ResumeGame()
+    {
+        pausePanel.SetActive(false);
+        Time.timeScale = 1f;
+    }
+    /// <summary>
+    /// Load this Scene
+    /// </summary>
     public void RestartThisScene()
     {
-        Debug.Log("Entra");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1f;
     }
-    public void ShowSettingsPanel() 
+    /// <summary>
+    /// Show settingsPanel and hide pausePanel
+    /// </summary>
+    public void ShowSettingsPanel()
     {
-        if (settingsPanel != null)
-        {
-            settingsPanel.SetActive(true);
-        }
+        pausePanel.SetActive(false);
+        settingsPanel.SetActive(true);
+    }
+    /// <summary>
+    /// //Load concrete scene
+    /// </summary>
+    public void ExitToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+    /// <summary>
+    /// ExitGame
+    /// </summary>
+    public void ExitGame()//
+    {
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;//If we are in the editor, the game will stop running
+        #else//If we are in the already built game it closes
+            Application.Quit();
+        #endif
     }
 }

@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 
     Instance = this;
         Instantiate(player, transform.position, Quaternion.identity);//Instantiate player and UIManager
-        Instantiate(uiManager, transform.position, Quaternion.identity);
+        //Instantiate(uiManager, transform.position, Quaternion.identity);
     }
     void Start()
     {
@@ -27,13 +27,5 @@ public class GameManager : MonoBehaviour
     {
         Player.Instance.gameOver = true; 
         Time.timeScale = 0f;
-    }
-    public void Pause()
-    {
-        
-    }
-    public void ResumeGame()
-    {
-
     }
 }
