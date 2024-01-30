@@ -8,9 +8,10 @@ using UnityEngine.SceneManagement;
 public class PauseUi : MonoBehaviour
 {
     [SerializeField] private GameObject pausePanel, settingsPanel;
-    [SerializeField] private Button resumeButton, restartButton, settingsButton, exitMenuButton, exitGameButton;
+    [SerializeField] private Button resumeButton, restartButton, settingsButton, exitMenuButton, exitGameButton, backSettingsButton;
     private void Start()//Register functions to buttons
     {
+        pausePanel.SetActive(false);
         settingsPanel.SetActive(false);
         if (resumeButton != null)
         {
@@ -22,7 +23,7 @@ public class PauseUi : MonoBehaviour
         }
         if (settingsButton != null)
         {
-            restartButton.onClick.AddListener(ShowSettingsPanel);
+            settingsButton.onClick.AddListener(ShowSettingsPanel);
         }
         if (exitMenuButton != null)
         {
@@ -31,6 +32,10 @@ public class PauseUi : MonoBehaviour
         if (exitGameButton != null)
         {
             exitGameButton.onClick.AddListener(ExitGame);
+        }
+        if(backSettingsButton != null)
+        {
+            backSettingsButton.onClick.AddListener(GoBackSettingsPanel);
         }
     }
     /// <summary>
@@ -96,5 +101,10 @@ public class PauseUi : MonoBehaviour
         #else//If we are in the already built game it closes
             Application.Quit();
         #endif
+    }
+    public void GoBackSettingsPanel()
+    {
+        settingsPanel.SetActive(false);
+        pausePanel.SetActive(true);
     }
 }

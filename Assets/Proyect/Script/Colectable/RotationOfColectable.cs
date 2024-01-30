@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RotationOfColectable : MonoBehaviour
 {
-    public float speed = 50f;
+    private float speed = 50f;
 
     void Start()
     {
@@ -16,7 +16,7 @@ public class RotationOfColectable : MonoBehaviour
         while (true)
         {
             transform.Rotate(Vector3.up * speed * Time.deltaTime);
-            yield return null;
+            yield return null;//no end
         }
     }
 }
