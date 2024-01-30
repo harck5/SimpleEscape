@@ -15,7 +15,7 @@ public class RotationOfColectable : MonoBehaviour
     {
         while (true)
         {
-            transform.Rotate(Vector3.up * speed * Time.deltaTime);
+            transform.Rotate(Vector3.up * speed * Time.deltaTime);//Infiniti rotation
             yield return null;//no end
         }
     }

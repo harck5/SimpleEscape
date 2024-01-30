@@ -20,7 +20,7 @@ public class LazyPlataforms : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         goDown = true;
     }
-    private void FixedUpdate()
+    private void Update()
     {
         if (goDown)
         {
