@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemiMovement : MonoBehaviour
 {
-     public Transform locatorA;
+    public Transform locatorA;
     public Transform locatorB;
     [SerializeField] private float speed = 5f;
 
