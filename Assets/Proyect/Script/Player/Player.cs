@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public static Player Instance { get; private set; }
     public bool gameOver = false;
+    public bool win = false;
     private void Awake()//Singleton
     {
         if (Instance != null)
@@ -44,10 +45,17 @@ public class Player : MonoBehaviour
             Debug.Log("Destroy whith projectile");
             GameManager.Instance.GameOver();
         }
+        //Ejecutable limit GameOver
         if (other.CompareTag("Limit"))
         {
             Debug.Log("Destroy whith limit");
             GameManager.Instance.GameOver();
+        }
+        //Ejecutable win
+        if(other.CompareTag("Win"))
+        {
+            Debug.Log("Win");
+            GameManager.Instance.PlayerWin();
         }
     }
 }

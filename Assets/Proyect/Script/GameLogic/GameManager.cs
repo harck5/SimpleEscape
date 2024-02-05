@@ -28,4 +28,9 @@ public class GameManager : MonoBehaviour
         Player.Instance.gameOver = true; 
         Time.timeScale = 0f;
     }
+    public void PlayerWin()//GameOver consequences
+    {
+        Player.Instance.win = true; 
+        Time.timeScale = 0f;
+    }
 }

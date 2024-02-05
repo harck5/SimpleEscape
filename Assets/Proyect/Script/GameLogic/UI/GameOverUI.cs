@@ -37,7 +37,7 @@ public class GameOverUI : MonoBehaviour
         gameOverTime.text = timer.text;
         gameOverTotalCoins.text = TotalCoins.text;
         restartButtonText.text = "Restart";
-        gameOverMessage.text = ("You Are Loser");
+        gameOverMessage.text = ("You Are The Loser");
         gameOverPanel.gameObject.SetActive(true);//Show the panel
     }
     public void RestartThisScene()
