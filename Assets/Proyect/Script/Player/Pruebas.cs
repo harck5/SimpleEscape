@@ -13,10 +13,12 @@ public class Pruebas : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         float moveDistance = speed * Time.deltaTime * horizontalInput;
         //canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerRadius, playerRadius, transform.right, moveDistance);
+        
 
         canMove = !Physics.Raycast(transform.position, Vector3.right * horizontalInput, playerRadius + moveDistance);
         Debug.Log(canMove);
         //Dibujar el rayo
+        Debug.DrawRay(transform.position + Vector3.right * 0.1f, Vector3.right * horizontalInput, Color.red);
         if (canMove) { transform.Translate(Vector3.right * moveDistance); }
     }
 }
