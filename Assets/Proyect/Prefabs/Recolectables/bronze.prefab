@@ -95,6 +95,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5750b0f3e1823f94bba2347f8d3d9808,
         type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5750b0f3e1823f94bba2347f8d3d9808,
+        type: 3}
       propertyPath: m_TagString
       value: Bronze
       objectReference: {fileID: 0}
@@ -150,4 +155,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3702033fdf75d474280725db7c3dd326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
