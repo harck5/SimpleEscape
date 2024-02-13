@@ -177,3 +177,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d872064edf7fc3e4fa800bb38cc85912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerRigidbody: {fileID: 0}
+  _AudioSource: {fileID: 0}
+  audioJump: {fileID: 8300000, guid: 4e349dc959014a845b9aa317d1c2b7f0, type: 3}
