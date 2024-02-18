@@ -7,24 +7,78 @@ public class ScoreManager : MonoBehaviour
     public const int BRONZE_COINS = 10;
     public const int SILVER_COINS = 100;
     public const int GOLD_COINS = 1000;
-    public static int score;
-    //private int totalPoints = 0;
-    
+
+    private const string PLAYER_SCORE_KEY = "PlayerScore";
+    private const string HIGH_SCORE_KEY = "HighScore";
+
+    private static int score;
+    private static int highScore;
+
     public static void InitializeStaticScore()
     {
-        score = 0;
-        AddScore(0);
-        ScoreUI.Instance.UpdateScoreText(score);
+        // Cargar el puntaje almacenado
+        LoadScore();
+        LoadHighScore();
+
+        // Inicializar el puntaje si no hay un puntaje almacenado
+        if (score == 0)
+        {
+            score = 0;
+            AddScore(0);
+            ScoreUI.Instance.UpdateScoreText(score);
+        }
     }
 
-    public static int GetScore()//investigar que es esto
+    public static int GetScore()
     {
         return score;
     }
 
-    public static void AddScore(int pointsToAdd)//add to the total points and call the function UpdateScoreText
+    public static void AddScore(int pointsToAdd)
     {
         score += pointsToAdd;
+
+        // Actualizar el récord si el puntaje actual supera el récord actual
+        if (score > highScore)
+        {
+            highScore = score;
+            SaveHighScore();
+        }
+
         ScoreUI.Instance.UpdateScoreText(score);
+        SaveScore();
+    }
+
+    public static int GetHighScore()//no se exactamente para que sirve
+    {
+        return highScore;
+    }
+
+    private static void SaveScore()
+    {
+        PlayerPrefs.SetInt(PLAYER_SCORE_KEY, score);
+        PlayerPrefs.Save();
+    }
+
+    private static void LoadScore()
+    {
+        if (PlayerPrefs.HasKey(PLAYER_SCORE_KEY))
+        {
+            score = PlayerPrefs.GetInt(PLAYER_SCORE_KEY);
+        }
+    }
+
+    private static void SaveHighScore()
+    {
+        PlayerPrefs.SetInt(HIGH_SCORE_KEY, highScore);
+        PlayerPrefs.Save();
+    }
+
+    private static void LoadHighScore()
+    {
+        if (PlayerPrefs.HasKey(HIGH_SCORE_KEY))
+        {
+            highScore = PlayerPrefs.GetInt(HIGH_SCORE_KEY);
+        }
     }
 }

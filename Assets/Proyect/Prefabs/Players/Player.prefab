@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1081800931262915917}
   - component: {fileID: 7216738204065932909}
   - component: {fileID: 795220034351577280}
-  - component: {fileID: 6231404466501475757}
+  - component: {fileID: 5366718359997383965}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -116,7 +116,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7061157570581935668}
   serializedVersion: 4
-  m_Mass: 20
+  m_Mass: 1
   m_Drag: 1
   m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOver: 0
   win: 0
---- !u!114 &6231404466501475757
+--- !u!114 &5366718359997383965
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,9 +158,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7061157570581935668}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d872064edf7fc3e4fa800bb38cc85912, type: 3}
+  m_Script: {fileID: 11500000, guid: a00dc24d31ac48547afebc1750831041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerRigidbody: {fileID: 0}
-  _AudioSource: {fileID: 0}
-  audioJump: {fileID: 8300000, guid: 4e349dc959014a845b9aa317d1c2b7f0, type: 3}
+  speed: 5
+  horizontalInput: 0
+  isGrounded: 0

@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour
     }
 
     Instance = this;
-        Instantiate(player, transform.position, Quaternion.identity);//Instantiate player and UIManager
-        //Instantiate(uiManager, transform.position, Quaternion.identity);
+        Instantiate(player, transform.position, Quaternion.identity);//Instantiate player
+        ScoreManager.InitializeStaticScore();
     }
     void Start()
     {

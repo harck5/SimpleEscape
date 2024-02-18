@@ -4,24 +4,31 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 5f;
-    [SerializeField] private float jumpForce = 80f;
-    [SerializeField] private float horizontalInput = 0;
+    private Rigidbody rigidBody;
 
-    private bool isGrounded;
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private float horizontalInput;
+    private float jumpForce = 10f;
+
+
+    [SerializeField]private bool isGrounded;
+    private void Start()
+    {
+        rigidBody = GetComponent<Rigidbody>();
+    }
 
     void Update()
     {
-        // Movement whith transform
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(new Vector3(horizontalInput * speed * Time.deltaTime, 0, 0));
-        
+
 
         // Jump if you are on the ground and press the jump key
-        if (isGrounded && Input.GetKeyDown(KeyCode.Space)|| isGrounded && Input.GetKeyDown(KeyCode.W))
+        if (isGrounded && Input.GetKeyDown(KeyCode.Space) || isGrounded && Input.GetKeyDown(KeyCode.W))
         {
-            GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);//From fisics
+            rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);//From fisics
         }
+
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             speed = 7;
@@ -39,23 +46,14 @@ public class PlayerMovement : MonoBehaviour
             //Parent the player to the platform, in case it is necessary for the player to follow the movement of the platforms
             transform.parent = collision.transform;
         }
-        if(collision.gameObject.CompareTag("BouncyGround"))
+        if (collision.gameObject.CompareTag("BouncyGround"))
         {
-            //It is the same line that uses space to jump
-            GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        }
-        if (collision.gameObject.CompareTag("RotatingGround"))
-        {
-            isGrounded = true;//Can jump
+            rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
     void OnCollisionStay(Collision collision)
     {
         if(collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;//Can jump
-        }
-        if (collision.gameObject.CompareTag("RotatingGround"))
         {
             isGrounded = true;//Can jump
         }
@@ -66,10 +64,6 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = false;//Can't jump
             transform.parent = null;//Unparent the player to plataform
-        }
-        if (collision.gameObject.CompareTag("RotatingGround"))
-        {
-            isGrounded = false;//Can't jump
         }
     }
 }
