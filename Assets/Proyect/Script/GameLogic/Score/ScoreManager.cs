@@ -19,14 +19,8 @@ public class ScoreManager : MonoBehaviour
         // Cargar el puntaje almacenado
         LoadScore();
         LoadHighScore();
-
-        // Inicializar el puntaje si no hay un puntaje almacenado
-        if (score == 0)
-        {
-            score = 0;
-            AddScore(0);
-            ScoreUI.Instance.UpdateScoreText(score);
-        }
+        ResetScore();
+        ScoreUI.Instance.UpdateHighScoreText(highScore);
     }
 
     public static int GetScore()
@@ -80,5 +74,16 @@ public class ScoreManager : MonoBehaviour
         {
             highScore = PlayerPrefs.GetInt(HIGH_SCORE_KEY);
         }
+    }
+    public static void ResetHighScore()
+    {
+        highScore = 0;
+        Debug.Log("Restart 2");
+    }
+    public static void ResetScore()
+    {
+        score = 0;
+        AddScore(0);
+        ScoreUI.Instance.UpdateScoreText(score);
     }
 }

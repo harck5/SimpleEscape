@@ -11,27 +11,27 @@ public class GameOverUI : MonoBehaviour
     public GameObject gameOverPanel;
     public Button restartButton, mainMenuButton;
 
-    private void Start()
+    private void Start()//Don' Show the panel
     {
         gameOverPanel.SetActive(false);
-        if (restartButton != null)
+        if (restartButton != null)//Click button
         {
-            restartButton.onClick.AddListener(RestartThisScene);
+            restartButton.onClick.AddListener(RestartThisScene);//button run funtion
         }
-        if(mainMenuButton !=null)
+        if(mainMenuButton !=null)//Click button
         {
-            mainMenuButton.onClick.AddListener(ExitToMenu);
+            mainMenuButton.onClick.AddListener(ExitToMenu);//button run funtion
         }
     }
     void Update()
     {
-        if (Player.Instance.gameOver)
+        if (Player.Instance.gameOver)//Player lose
         {
-            ShowGameOverPanel();
+            ShowGameOverPanel();//Call function
         }
 
     }
-    void ShowGameOverPanel()
+    void ShowGameOverPanel()//All texts be change
     {
         gameOverText.text = "Game Over";
         gameOverTime.text = timer.text;
@@ -40,14 +40,15 @@ public class GameOverUI : MonoBehaviour
         gameOverMessage.text = ("You Are The Loser");
         gameOverPanel.gameObject.SetActive(true);//Show the panel
     }
-    public void RestartThisScene()
+    public void RestartThisScene()//"Restart" scene
     {
-        Debug.Log("Entra");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Time.timeScale = 1f;
+        SoundManager.Instance.PlaySound(SoundManager.Sound.ButtonClick);//Sound
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);//load scenes (.name) is this scene
+        Time.timeScale = 1f;//and return to normal time scale
     }
-    public void ExitToMenu()
+    public void ExitToMenu()//Load scene MainMenu
     {
+        SoundManager.Instance.PlaySound(SoundManager.Sound.ButtonClick);//Sound
         SceneManager.LoadScene("MainMenu");
     }
 }

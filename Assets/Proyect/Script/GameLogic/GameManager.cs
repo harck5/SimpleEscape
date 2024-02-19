@@ -16,12 +16,9 @@ public class GameManager : MonoBehaviour
     }
 
     Instance = this;
+        
         Instantiate(player, transform.position, Quaternion.identity);//Instantiate player
         ScoreManager.InitializeStaticScore();
-    }
-    void Start()
-    {
-        ScoreManager.InitializeStaticScore();//funciona
     }
     public void GameOver()//GameOver consequences
     {

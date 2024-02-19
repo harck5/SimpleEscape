@@ -16,6 +16,15 @@ public class Player : MonoBehaviour
 
         Instance = this;
     }
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Debug.Log("Restart");
+            ScoreManager.ResetHighScore();
+        }
+        
+    }
     void OnTriggerEnter(Collider other)
     {
         //Ejecutable coins

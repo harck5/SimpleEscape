@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded && Input.GetKeyDown(KeyCode.Space) || isGrounded && Input.GetKeyDown(KeyCode.W))
         {
             rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);//From fisics
+            SoundManager.Instance.PlaySound(SoundManager.Sound.Jump);//Soun for Jump
+            Debug.Log("Jump");
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
@@ -48,7 +50,8 @@ public class PlayerMovement : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("BouncyGround"))
         {
-            rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);//From fisics
+            SoundManager.Instance.PlaySound(SoundManager.Sound.Bounce);
         }
     }
     void OnCollisionStay(Collision collision)

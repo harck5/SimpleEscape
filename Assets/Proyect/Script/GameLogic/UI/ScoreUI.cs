@@ -7,7 +7,7 @@ public class ScoreUI : MonoBehaviour
 {
     public static ScoreUI Instance { get; private set; }
 
-    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI scoreText, highScoreText;
     
     private void Awake()//Singleton
     {
@@ -21,5 +21,9 @@ public class ScoreUI : MonoBehaviour
         public void UpdateScoreText(int score)//Update de scoretext
     {
         scoreText.text = $"{score}";
+    }
+    public void UpdateHighScoreText(int highScore)//Update de scoretext
+    {
+        highScoreText.text = $"{highScore}";
     }
 }
