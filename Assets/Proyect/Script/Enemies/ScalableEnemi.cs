@@ -41,6 +41,9 @@ public class ScalableEnemi : MonoBehaviour
     private void LateUpdate()
     {
         anim.SetBool("Prueba", playerIsClose);
+        if(playerIsClose)
+        {
+            SoundManager.Instance.PlaySound(SoundManager.Sound.Scale);//no funciona bien
+        }
     }
-
 }

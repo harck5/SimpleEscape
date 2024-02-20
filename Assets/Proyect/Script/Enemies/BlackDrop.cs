@@ -30,6 +30,7 @@ public class BlackDrop : MonoBehaviour
                 Instantiate(blackDrop, transform.position, Quaternion.Euler(0, 0, 225));
                 Instantiate(blackDrop, transform.position, Quaternion.Euler(0, 0, 270));
                 Instantiate(blackDrop, transform.position, Quaternion.Euler(0, 0, 315));
+                SoundManager.Instance.PlaySound(SoundManager.Sound.Shot);
                 timer -= timerMax; // Restart Timer
                 }
             

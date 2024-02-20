@@ -5,7 +5,7 @@ using UnityEngine;
 public class ContraRotatingPlataforms : MonoBehaviour
 {
     [SerializeField] private float speed = 5;//Dont worcking
-    void FixedUpdate()
+    void Update()
     {
         transform.Rotate(Vector3.forward * -speed);
     }

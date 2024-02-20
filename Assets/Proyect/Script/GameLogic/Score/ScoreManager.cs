@@ -31,14 +31,19 @@ public class ScoreManager : MonoBehaviour
     public static void AddScore(int pointsToAdd)
     {
         score += pointsToAdd;
+        if(score > 0)
+        {
+            SoundManager.Instance.PlaySound(SoundManager.Sound.Coins);//Sound
+        }
+        
 
-        // Actualizar el récord si el puntaje actual supera el récord actual
+        // Actualizar el rï¿½cord si el puntaje actual supera el rï¿½cord actual
         if (score > highScore)
         {
             highScore = score;
             SaveHighScore();
+            
         }
-
         ScoreUI.Instance.UpdateScoreText(score);
         SaveScore();
     }

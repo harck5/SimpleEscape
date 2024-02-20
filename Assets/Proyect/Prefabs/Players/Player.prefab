@@ -163,4 +163,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   horizontalInput: 0
+  particleJump: {fileID: 2474250473614499711, guid: 438344d7b72eacc49934f9a6cecddcbf,
+    type: 3}
   isGrounded: 0

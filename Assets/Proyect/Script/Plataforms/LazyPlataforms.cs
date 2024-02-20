@@ -11,18 +11,19 @@ public class LazyPlataforms : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && !goDown)
         {
-            GetComponent<Renderer>().material.color = Color.red;
+            GetComponent<Renderer>().material.color = Color.red;//Change color
+            SoundManager.Instance.PlaySound(SoundManager.Sound.Lazy);//Sound
             StartCoroutine(WaitAndStartGoingDown());
         }
     }
-    private IEnumerator WaitAndStartGoingDown()
+    private IEnumerator WaitAndStartGoingDown()//timer
     {
         yield return new WaitForSeconds(waitTime);
         goDown = true;
     }
     private void Update()
     {
-        if (goDown)
+        if (goDown)//platform falls
         {
             transform.Translate(Vector3.down * speed * Time.deltaTime);
         }

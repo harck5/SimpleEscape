@@ -14,7 +14,7 @@ public class Shot : MonoBehaviour
         if (timer >= timerMax)
         {
             timer -= timerMax; // Restart Timer
-            //Indicate the projectile rotated 90º so that it makes the shape of the bullet a little
+            //Indicate the projectile rotated 90ï¿½ so that it makes the shape of the bullet a little
             Instantiate(proyectile, transform.position + new Vector3(0,x,0), Quaternion.Euler (0, 0, 90));
         }
     }

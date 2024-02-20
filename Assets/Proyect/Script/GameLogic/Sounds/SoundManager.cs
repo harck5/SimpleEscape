@@ -8,15 +8,17 @@ public class SoundManager : MonoBehaviour
 
     public enum Sound
     {
+        Music,
         ButtonClick,
         GameOver,//falta
         Win,//falta
-        Shot,
-        Drop,
-        Scale,
+        Shot,//Asigned
+        Drop,//Assigned
+        Scale,//Assigned
         Jump,//Assigned
         Bounce,//Assigned
-        Lazy
+        Lazy,//Assigned
+        Coins//Assigned
     }
 
     private static GameObject soundManagerGameObject;
@@ -51,7 +53,7 @@ public class SoundManager : MonoBehaviour
         // Obtener el AudioClip asociado al Sound
         AudioClip audioClip = GetAudioClipFromSound(sound);
 
-        // Verificar si se encontró el AudioClip
+        // Verificar si se encontrï¿½ el AudioClip
         if (audioClip != null)
         {
             audioSource.PlayOneShot(audioClip);
