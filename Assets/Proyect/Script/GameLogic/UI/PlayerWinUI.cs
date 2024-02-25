@@ -36,6 +36,7 @@ public class PlayerWinUI : MonoBehaviour
     }
     void ShowWinPanel()
     {
+        SoundManager.Instance.PlaySound(SoundManager.Sound.Win);
         winnerText.text = "You Are The Winner";
         winnerTime.text = timer.text;
         winnerTotalCoins.text = TotalCoins.text;

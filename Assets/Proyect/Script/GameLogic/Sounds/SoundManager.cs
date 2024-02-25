@@ -8,10 +8,8 @@ public class SoundManager : MonoBehaviour
 
     public enum Sound
     {
-        Music,
-        ButtonClick,
-        GameOver,//falta
-        Win,//falta
+        GameOver,//Asigned
+        Win,//Asigned
         Shot,//Asigned
         Drop,//Assigned
         Scale,//Assigned

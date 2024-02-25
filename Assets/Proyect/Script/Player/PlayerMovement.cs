@@ -14,6 +14,12 @@ public class PlayerMovement : MonoBehaviour
     ParticleSystem particleJump;
     private bool offParticle;
 
+    public float distanceRay = 0.5f;
+    private LayerMask Ground;
+
+    //private float timeInAir;
+    //private float heithJump = 4;
+
     [SerializeField]private bool isGrounded;
     private void Start()
     {
@@ -28,17 +34,31 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(new Vector3(horizontalInput * speed * Time.deltaTime, 0, 0));
+        //RaycastHit2D rayLeft = Physics2D.Raycast(transform.position, Vector2.left, distanceRay, Ground);
+        //Debug.DrawRay(transform.position, Vector2.left, Color.red ,distanceRay);
+
+
 
 
         // Jump if you are on the ground and press the jump key
         if (isGrounded && Input.GetKeyDown(KeyCode.Space) || isGrounded && Input.GetKeyDown(KeyCode.W))
         {
             rigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);//From fisics
+            //Jump();
             SoundManager.Instance.PlaySound(SoundManager.Sound.Jump);//Soun for Jump
             particleJump.Play();
             StartCoroutine(WaitAndStartGoingDown());
-            
         }
+        /*if (!isGrounded)
+        {
+            timeInAir -= Time.deltaTime;
+
+            if (timeInAir <= 0)
+            {
+                isGrounded = true;
+                timeInAir = 2f; // Restart
+            }
+        }*/
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -83,4 +103,13 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         particleJump.Stop();
     }
+    /*void Jump()
+    {
+        
+        float nuevaAltura = transform.position.y + heithJump;
+        transform.position = new Vector3(transform.position.x, nuevaAltura, transform.position.z);
+
+        
+        isGrounded = false;
+    }*/
 }
