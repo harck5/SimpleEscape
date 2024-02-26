@@ -10,6 +10,7 @@ public class GameOverUI : MonoBehaviour
     public TextMeshProUGUI gameOverText, gameOverTotalCoins, gameOverTime, gameOverMessage, TotalCoins, timer, restartButtonText;
     public GameObject gameOverPanel;
     public Button restartButton, mainMenuButton;
+    private bool firstTime;
 
     private void Start()//Don' Show the panel
     {
@@ -22,12 +23,14 @@ public class GameOverUI : MonoBehaviour
         {
             mainMenuButton.onClick.AddListener(ExitToMenu);//button run funtion
         }
+        firstTime = true;
     }
     void Update()
     {
-        if (Player.Instance.gameOver)//Player lose
+        if (Player.Instance.gameOver && firstTime)//Player lose
         {
             ShowGameOverPanel();//Call function
+            firstTime = false;
         }
 
     }

@@ -33,7 +33,8 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(new Vector3(horizontalInput * speed * Time.deltaTime, 0, 0));
+        //transform.Translate(new Vector3(horizontalInput * speed * Time.deltaTime, 0, 0));
+        rigidBody.velocity = new Vector3(horizontalInput * speed, rigidBody.velocity.y, 0);
         //RaycastHit2D rayLeft = Physics2D.Raycast(transform.position, Vector2.left, distanceRay, Ground);
         //Debug.DrawRay(transform.position, Vector2.left, Color.red ,distanceRay);
 

@@ -20,6 +20,7 @@ public class ScoreUI : MonoBehaviour
     }   
         public void UpdateScoreText(int score)//Update de scoretext
     {
+        Debug.Log(scoreText);
         scoreText.text = $"{score}";
     }
     public void UpdateHighScoreText(int highScore)//Update de scoretext

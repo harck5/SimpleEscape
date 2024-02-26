@@ -22,11 +22,7 @@ public class ScoreManager : MonoBehaviour
         ResetScore();
         ScoreUI.Instance.UpdateHighScoreText(highScore);
     }
-
-    public static int GetScore()
-    {
-        return score;
-    }
+    
 
     public static void AddScore(int pointsToAdd)
     {
@@ -44,13 +40,9 @@ public class ScoreManager : MonoBehaviour
             SaveHighScore();
             
         }
+        
         ScoreUI.Instance.UpdateScoreText(score);
         SaveScore();
-    }
-
-    public static int GetHighScore()//no se exactamente para que sirve
-    {
-        return highScore;
     }
 
     private static void SaveScore()

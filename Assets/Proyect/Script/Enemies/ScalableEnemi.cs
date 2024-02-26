@@ -8,6 +8,7 @@ public class ScalableEnemi : MonoBehaviour
     [SerializeField] private float distnaceToScale = 5f;
     Animator anim;
     bool playerIsClose;
+    bool firstTime;
 
 
     private void Start()
@@ -15,33 +16,19 @@ public class ScalableEnemi : MonoBehaviour
         
         player = GameObject.FindGameObjectWithTag("Player"); //Need to assign yes or yes by code to the player in start
         anim = GetComponent<Animator>();
+
     }
 
     void Update()
     {
         float distanciaAlPlayer = Vector3.Distance(transform.position, player.transform.position);//Recalculate player position frame by frame
         playerIsClose = distanciaAlPlayer <= distnaceToScale;
-        
-
-        //And we modify the scale according to the distance it is from the player
-        // if (distanciaAlPlayer <= distnaceToScale)
-        // {
-        //     //anim.SetInteger("ScalableAnimationList", 1);
-        //     anim.SetBool("Prueba", true);
-        //     Debug.Log("Cerca");
-        // }
-        // else
-        // {
-        //     anim.SetBool("Prueba", false);
-        //     //anim.SetInteger("ScalableAnimationList", 3);
-        //     Debug.Log("Lejos");
-        // }
     }
 
     private void LateUpdate()
     {
         anim.SetBool("Prueba", playerIsClose);
-        if(playerIsClose)
+        if(playerIsClose && firstTime)
         {
             SoundManager.Instance.PlaySound(SoundManager.Sound.Scale);//no funciona bien
         }

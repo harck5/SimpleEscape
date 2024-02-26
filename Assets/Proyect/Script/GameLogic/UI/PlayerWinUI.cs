@@ -10,6 +10,7 @@ public class PlayerWinUI : MonoBehaviour
     public TextMeshProUGUI winnerText, winnerTotalCoins, winnerTime, winnerMessage, TotalCoins, timer, restartButtonText;
     public GameObject winnerPanel;
     public Button restartButton, mainMenuButton, selectionLevels;
+    bool firstTime;
         private void Start()
     {
         winnerPanel.SetActive(false);
@@ -25,14 +26,15 @@ public class PlayerWinUI : MonoBehaviour
         {
             selectionLevels.onClick.AddListener(LoadLevelsScene);
         }
+        firstTime = true;
     }
     void Update()
     {
-        if (Player.Instance.win)
+        if (Player.Instance.win && firstTime)
         {
             ShowWinPanel();
+            firstTime = false;
         }
-
     }
     void ShowWinPanel()
     {

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -17,8 +18,14 @@ public class GameManager : MonoBehaviour
     Instance = this;
         
         Instantiate(player, transform.position, Quaternion.identity);//Instantiate player
-        ScoreManager.InitializeStaticScore();
+        
     }
+
+    private void Start()
+    {
+        ScoreManager.InitializeStaticScore(); // Deberes: ¿por qué en el Start y no en el Awake?
+    }
+
     public void GameOver()//GameOver consequences
     {
         Player.Instance.gameOver = true; 
