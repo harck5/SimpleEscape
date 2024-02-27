@@ -35,6 +35,10 @@ public class PlayerMovement : MonoBehaviour
             particleJump.Play();
             StartCoroutine(WaitAndStartGoingDown());//Run corutine to wait 0,5 secs to stop run particles sistem
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ScoreManager.ResetHighScore();
+        }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {

@@ -13,17 +13,15 @@ public class ScoreManager : MonoBehaviour
 
     private static int score;
     private static int highScore;
+    private static int resetScore = 0;
 
     public static void InitializeStaticScore()
     {
-        // LOad score
-        LoadScore();
+        // Load score
         LoadHighScore();
         ResetScore();
         ScoreUI.Instance.UpdateHighScoreText(highScore);
     }
-    
-
     public static void AddScore(int pointsToAdd)
     {
         score += pointsToAdd;
@@ -31,8 +29,6 @@ public class ScoreManager : MonoBehaviour
         {
             SoundManager.Instance.PlaySound(SoundManager.Sound.Coins);//Sound
         }
-        
-
         // Update highScore
         if (score > highScore)
         {
@@ -40,47 +36,33 @@ public class ScoreManager : MonoBehaviour
             SaveHighScore();
             
         }
-        
         ScoreUI.Instance.UpdateScoreText(score);
-        SaveScore();
     }
 
-    private static void SaveScore()
+    public static void ResetHighScore()//Associate the values ??and save the changes to reset the score
     {
-        PlayerPrefs.SetInt(PLAYER_SCORE_KEY, score);
+        highScore = resetScore;
+        PlayerPrefs.SetInt(HIGH_SCORE_KEY, resetScore);
         PlayerPrefs.Save();
+        ScoreUI.Instance.UpdateHighScoreText(highScore);
     }
-
-    private static void LoadScore()
-    {
-        if (PlayerPrefs.HasKey(PLAYER_SCORE_KEY))
-        {
-            score = PlayerPrefs.GetInt(PLAYER_SCORE_KEY);
-        }
-    }
-
-    private static void SaveHighScore()
+    private static void SaveHighScore()//Associate the values ??and save the changes
     {
         PlayerPrefs.SetInt(HIGH_SCORE_KEY, highScore);
         PlayerPrefs.Save();
     }
 
-    private static void LoadHighScore()
+    private static void LoadHighScore()//If there is value in HIGH_SCORE_KEY then equal highScore
     {
         if (PlayerPrefs.HasKey(HIGH_SCORE_KEY))
         {
             highScore = PlayerPrefs.GetInt(HIGH_SCORE_KEY);
         }
     }
-    public static void ResetHighScore()
-    {
-        highScore = 0;
-        Debug.Log("Restart 2");
-    }
-    public static void ResetScore()
+    public static void ResetScore()//to start the level at 0
     {
         score = 0;
         AddScore(0);
-        ScoreUI.Instance.UpdateScoreText(score);
+        ScoreUI.Instance.UpdateScoreText(score);//And call visual funtion
     }
 }
