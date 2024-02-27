@@ -38,27 +38,4 @@ public class EnemiMovement : MonoBehaviour
             }
         }
     }
-    /*IEnumerator MoveBetweenLocators()
-{
-    while (true)
-    {
-        if (goToB)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, locatorB.position, speed * Time.deltaTime);
-            if (transform.position == locatorB.position)
-            {
-                goToB = false;
-            }
-        }
-        else
-        {
-            transform.position = Vector3.MoveTowards(transform.position, locatorA.position, speed * Time.deltaTime);
-            if (transform.position == locatorA.position)
-            {
-                goToB = true;
-            }
-        }
-
-        yield return null;
-    }*/
 }

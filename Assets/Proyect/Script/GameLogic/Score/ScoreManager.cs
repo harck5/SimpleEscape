@@ -16,7 +16,7 @@ public class ScoreManager : MonoBehaviour
 
     public static void InitializeStaticScore()
     {
-        // Cargar el puntaje almacenado
+        // LOad score
         LoadScore();
         LoadHighScore();
         ResetScore();
@@ -33,7 +33,7 @@ public class ScoreManager : MonoBehaviour
         }
         
 
-        // Actualizar el r�cord si el puntaje actual supera el r�cord actual
+        // Update highScore
         if (score > highScore)
         {
             highScore = score;

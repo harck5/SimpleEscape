@@ -48,10 +48,10 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound(Sound sound)
     {
-        // Obtener el AudioClip asociado al Sound
+        // Obtain the AudioClip associated with the Sound
         AudioClip audioClip = GetAudioClipFromSound(sound);
 
-        // Verificar si se encontr� el AudioClip
+        // Check if the AudioClip was found
         if (audioClip != null)
         {
             audioSource.PlayOneShot(audioClip);
@@ -66,7 +66,7 @@ public class SoundManager : MonoBehaviour
     {
         foreach (AudioClip soundAudioClip in soundAudioClipsArray)
         {
-            // Comparar el nombre del AudioClip con el nombre del Sound
+            // Compare the name of the AudioClip with the name of the Sound
             if (soundAudioClip.name == sound.ToString())
             {
                 return soundAudioClip;

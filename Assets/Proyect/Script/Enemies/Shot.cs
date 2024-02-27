@@ -6,7 +6,7 @@ public class Shot : MonoBehaviour
 {
     public GameObject proyectile;
     private float timer;
-    [SerializeField] private float timerMax = 1f;//Modify the height
+    [SerializeField] private float timerMax = 1f;
     public float x = 0;
     private void Update()
     {
@@ -14,7 +14,7 @@ public class Shot : MonoBehaviour
         if (timer >= timerMax)
         {
             timer -= timerMax; // Restart Timer
-            //Indicate the projectile rotated 90� so that it makes the shape of the bullet a little
+            //Indicate the projectile rotated 90º so that it makes the shape of the bullet a little
             Instantiate(proyectile, transform.position + new Vector3(0,x,0), Quaternion.Euler (0, 0, 90));
         }
     }

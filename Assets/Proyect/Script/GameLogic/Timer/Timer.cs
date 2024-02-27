@@ -12,7 +12,7 @@ public class Timer : MonoBehaviour
     {
         StartCoroutine(Timer0());
     }
-    private IEnumerator Timer0()
+    private IEnumerator Timer0()//Timer of game
     {
         while (true)
         {

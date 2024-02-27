@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        ScoreManager.InitializeStaticScore(); // Deberes: ¿por qué en el Start y no en el Awake?
+        ScoreManager.InitializeStaticScore(); // If we call it in awake it will be too early for the game because the functions on which this function depends are not called in awake
     }
 
     public void GameOver()//GameOver consequences

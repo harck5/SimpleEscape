@@ -16,15 +16,6 @@ public class Player : MonoBehaviour
 
         Instance = this;
     }
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Debug.Log("Restart");
-            ScoreManager.ResetHighScore();
-        }
-        
-    }
     void OnTriggerEnter(Collider other)
     {
         //Ejecutable coins
@@ -44,20 +35,8 @@ public class Player : MonoBehaviour
             ScoreManager.AddScore(ScoreManager.GOLD_COINS);
         }
         //Ejecutable enemies GameOver
-        if (other.CompareTag("Enemi"))
+        if (other.CompareTag("Enemi") || other.CompareTag("Proyectile") || other.CompareTag("Limit"))
         {
-            Debug.Log("Destroy whith Enemi");
-            GameManager.Instance.GameOver();
-        }
-        if (other.CompareTag("Proyectile"))
-        {
-            Debug.Log("Destroy whith projectile");
-            GameManager.Instance.GameOver();
-        }
-        //Ejecutable limit GameOver
-        if (other.CompareTag("Limit"))
-        {
-            Debug.Log("Destroy whith limit");
             GameManager.Instance.GameOver();
         }
         //Ejecutable win

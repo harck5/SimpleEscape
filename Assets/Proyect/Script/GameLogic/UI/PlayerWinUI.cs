@@ -30,7 +30,7 @@ public class PlayerWinUI : MonoBehaviour
     }
     void Update()
     {
-        if (Player.Instance.win && firstTime)
+        if (Player.Instance.win && firstTime)//firstTime is a variable that is used to prevent the sound from exploding.
         {
             ShowWinPanel();
             firstTime = false;

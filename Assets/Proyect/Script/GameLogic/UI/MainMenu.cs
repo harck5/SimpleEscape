@@ -6,15 +6,14 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject menuPanel, controlsPanel, settingsPanel;
+    [SerializeField] private GameObject menuPanel, controlsPanel;//panels
     [SerializeField] private Button playButton, controlsButton, settingsButton, exitGameButton, backControlsButton, backSettingsButton;
     private void Awake()
     {
         menuPanel.SetActive(true);
         controlsPanel.SetActive(false);
-        settingsPanel.SetActive(false);
     }
-    private void Start()
+    private void Start()//add funtions to the buttons
     {
         
         if (playButton != null)
@@ -25,17 +24,9 @@ public class MainMenu : MonoBehaviour
         {
             controlsButton.onClick.AddListener(ShowControlPanel);
         }
-        if (settingsButton != null)
-        {
-            settingsButton.onClick.AddListener(ShowSettingsPanel);
-        }
         if (exitGameButton != null)
         {
             exitGameButton.onClick.AddListener(ExitGame);
-        }
-        if (backSettingsButton != null)
-        {
-            backSettingsButton.onClick.AddListener(GoBackSettingsPanel);
         }
         if (backControlsButton != null)
         {
@@ -43,35 +34,24 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-    public void ShowControlPanel()
+    public void ShowControlPanel()//go control panel
     {
         
         controlsPanel.SetActive(true);
         menuPanel.SetActive(false);
     }
-
-    public void ShowSettingsPanel()
-    {
-        settingsPanel.SetActive(true);
-        menuPanel.SetActive(false);
-    }
-    public void GoBackSettingsPanel()
-    {
-        settingsPanel.SetActive(false);
-        menuPanel.SetActive(true);
-    }
-    public void GoBackControlPanel()
+    public void GoBackControlPanel()//Return to menu
     {
         controlsPanel.SetActive(false);
         menuPanel.SetActive(true);
     }
 
-    public void LoadLevelsScene()
+    public void LoadLevelsScene()//load scene of selection levels
     {
         string levels = "Levels";
         SceneManager.LoadScene(levels);
     }
-    public void ExitGame()
+    public void ExitGame()//Stop running the game
     {
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;

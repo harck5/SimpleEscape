@@ -31,6 +31,11 @@ public class ScalableEnemi : MonoBehaviour
         if(playerIsClose && firstTime)
         {
             SoundManager.Instance.PlaySound(SoundManager.Sound.Scale);//no funciona bien
+            firstTime = false;
+        }
+        if(!playerIsClose)
+        {
+            firstTime = true;
         }
     }
 }

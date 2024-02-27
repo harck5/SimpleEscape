@@ -27,7 +27,7 @@ public class GameOverUI : MonoBehaviour
     }
     void Update()
     {
-        if (Player.Instance.gameOver && firstTime)//Player lose
+        if (Player.Instance.gameOver && firstTime)//firstTime is a variable that is used to prevent the sound from exploding.
         {
             ShowGameOverPanel();//Call function
             firstTime = false;

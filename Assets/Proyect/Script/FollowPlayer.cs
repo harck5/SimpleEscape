@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
+    //Follow camera to player
     [SerializeField] private GameObject player;
     void Start()
     {
